@@ -18,7 +18,7 @@ def fit_model(
         epochs: int,
         alpha: float,
         x: float,
-) -> list[float]:
+) -> np.ndarray:
     x_steps = [x]
     for _ in range(epochs):
         x = grad_descent_step(
