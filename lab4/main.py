@@ -11,8 +11,8 @@ def f(w: np.ndarray):
     return np.square(1 - x) + 100 * np.square(y - np.square(x))
 
 
-EPOCHS = 10
-ALPHA = 0.002
+EPOCHS = 40
+ALPHA = 0.0025
 BETA = 0.05
 P1 = 0.9
 P2 = 0.999
@@ -29,7 +29,7 @@ w_minimum = np.array([1.0, 1.0])
 optimizers = [
     ("Simple GD", simple_grad_descent, (f, EPOCHS, ALPHA, FEATURES)),
     ("Momentum", impulse_grad_descent, (f, EPOCHS, ALPHA, BETA, FEATURES)),
-    ("Adam", adam_descent, (f, 40, 0.9, P1, P2, EPSILON, FEATURES)),
+    ("Adam", adam_descent, (f, EPOCHS, 0.9, P1, P2, EPSILON, FEATURES)),
 ]
 
 for title, descent, args in optimizers:
